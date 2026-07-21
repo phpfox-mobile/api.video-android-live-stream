@@ -285,6 +285,34 @@ constructor(
         }
 
     /**
+     * Set/get the torch (flashlight) state. Only available on cameras that have a flash unit
+     * (typically the back camera). Check [isTorchAvailable] before setting.
+     */
+    var isTorchOn: Boolean
+        /**
+         * Get the torch state.
+         *
+         * @return [Boolean.true] if torch is on, [Boolean.false] if torch is off.
+         */
+        get() = streamer.settings.camera.flash.enable
+        /**
+         * Set the torch state.
+         *
+         * @param value [Boolean.true] to turn on the torch, [Boolean.false] to turn it off.
+         */
+        set(value) {
+            streamer.settings.camera.flash.enable = value
+        }
+
+    /**
+     * Get whether the current camera has a flash unit available.
+     *
+     * @return [Boolean.true] if a flash/torch is available on the current camera.
+     */
+    val isTorchAvailable: Boolean
+        get() = streamer.settings.camera.flash.available
+
+    /**
      * Start a new RTMP stream.
      *
      * @param streamKey RTMP stream key. For security purpose, you must not expose it.
