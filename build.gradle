@@ -14,8 +14,9 @@ buildscript {
         versionCode = properties['VERSION_CODE'].toInteger()
         versionName = "${properties['VERSION_NAME']}"
 
-        // StreamPack
-        streamPackVersion = "2.6.1"
+        // StreamPack, from the phpfox-mobile fork (JitPack): 2.6.1 plus a fix for the
+        // encoder stalling - and stopStream() hanging - once the RTMP endpoint fails.
+        streamPackVersion = "v2.6.1-phpfox1"
     }
 }
 plugins {
